@@ -1,9 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
-
+from django.views.generic import TemplateView,ListView
+from Leetai.models import Question,Answer
+from django.views.generic.detail import DetailView
 # class クラス名（親クラス）
-class HomepageView(TemplateView):
+class HomepageView(ListView):
     # HTMLを指定する属性
     template_name = 'home.html'
-
-
+    model = Question
+    context_object_name = "Question_lists"
+    
+class QustionDetail(DetailView):
+    model = Question
+    template_name = 'question_detail.html'

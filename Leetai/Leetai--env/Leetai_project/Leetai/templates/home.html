@@ -1,1 +1,13 @@
-<h1>hellooo</h1>
+<h1>Leetai HOMe</h1>
+
+<table>
+    <tr>
+        <th>募集中の質問</th>
+    </tr>
+    {% for Questions in Question_lists %}
+    <tr>
+        <td>{{Questions.title}}</td>
+        <td><a href="{% url 'question' question.id %}">質問内容</a></td>
+    </tr>
+    {% endfor%}
+</table>
