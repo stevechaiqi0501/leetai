@@ -9,6 +9,7 @@ class HomepageView(ListView):
     model = Question
     context_object_name = "Question_lists"
     
-class QustionDetail(DetailView):
+class QuestionDetailView (DetailView):
     model = Question
     template_name = 'question_detail.html'
+    context_object_name = 'question'
