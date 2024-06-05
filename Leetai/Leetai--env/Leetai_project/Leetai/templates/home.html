@@ -1,13 +1,14 @@
 <h1>Leetai HOMe</h1>
-
+<a href="{% url 'create_Question'  %}" >質問を投稿</a>
 <table>
     <tr>
         <th>募集中の質問</th>
     </tr>
-    {% for Questions in Question_lists %}
+    {% for question in Question_lists %}
     <tr>
-        <td>{{Questions.title}}</td>
+        <td>{{question.title}}</td>
         <td><a href="{% url 'question_detail' question.id %}">質問内容</a></td>
+        <td><a href="{% url 'edit_question' question.id %}">質問を編集する</a></td>
     </tr>
     {% endfor%}
 </table>
