@@ -1,5 +1,17 @@
+{% if request.user.is_authenticated %}
+<p>{{request.user}}</p>
+<form id="logout" method="POST" action="{% url 'logout' %}"style="display: none;">
+    {% csrf_token %}
+<button type="submit">logout</button>
+</form>
+<a href="#" onclick="document.getElementById('logout').submit();">logout</a>
+
+{% else %}
+<a href ="{% url 'login' %}">ログイン</a>
+{% endif %}
 <h1>Leetai HOMe</h1>
 <a href="{% url 'create_Question'  %}" >質問を投稿</a>
+<a href="{% url 'myhome' %}">自分が投稿した質問を見る</a>
 <table>
     <tr>
         <th>募集中の質問</th>
@@ -7,8 +19,8 @@
     {% for question in Question_lists %}
     <tr>
         <td>{{question.title}}</td>
-        <td><a href="{% url 'question_detail' question.id %}">質問内容</a></td>
-        <td><a href="{% url 'edit_question' question.id %}">質問を編集する</a></td>
+        <td><a href="{% url 'question_detail' question.id %}">質問の詳細を確認する</a></td>
+
     </tr>
     {% endfor%}
 </table>

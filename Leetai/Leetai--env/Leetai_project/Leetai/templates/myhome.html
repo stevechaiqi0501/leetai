@@ -1,0 +1,14 @@
+
+<table>
+    <tr>
+        <th>自分が募集した質問</th>
+    </tr>
+    {% for question in Question_lists %}
+    <tr>
+        <td>{{question.title}}</td>
+        <td><a href="{% url 'question_detail' question.id %}">質問内容</a></td>
+        <td><a href="{% url 'edit_question' question.id %}">質問を編集する</a></td>
+        <td><a href="{% url 'delete_question' question.id %}">質問を消去する</a></td>
+    </tr>
+    {% endfor%}
+</table>

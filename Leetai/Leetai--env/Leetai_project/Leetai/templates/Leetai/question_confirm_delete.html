@@ -1,0 +1,6 @@
+<a href = '{% url "home" %}'>HOMe</a>
+<form method="POST">
+    {% csrf_token %}
+    <p>{{question}}を本当に消去しますか？</p>
+    <input type="submit" value="削除">
+</form>

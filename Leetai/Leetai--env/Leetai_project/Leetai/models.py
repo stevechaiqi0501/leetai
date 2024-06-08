@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,AbstractUser,Group,Permission
 
 # Create your models here.
 class Question(models.Model):
@@ -21,5 +21,4 @@ class Answer(models.Model):
     def __str__(self):
         return f"Answer to {self.question.title}"
     
-class Meta:
-    ordering = ["completed"]
+    
